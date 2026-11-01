@@ -3,129 +3,246 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Who the Hell Invented LARP?</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap">
+<title>The Art-LARP Paradox</title>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#fff7e0;--ink:#1a1420;--y:#ffd23f;--r:#e63946;--b:#3a86ff;--g:#52b788;--p:#c77dff;--cap:#fff1a8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#241c30;--ink:#f6efe2;--cap:#4a3f66}}
-:root[data-theme="dark"]{--paper:#241c30;--ink:#f6efe2;--cap:#4a3f66}
+:root{--ink:#14110f;--paper:#fffdf5;--bg:#ffe9a8;--text:#14110f;--dot:rgba(255,120,60,.25);--y:#ffd93d;--p:#8b5cf6;--g:#3ccf7a;--r:#ff4d5e;--b:#4cc9f0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1c1636;--text:#fff6d6;--dot:rgba(255,255,255,.07)}}
+:root[data-theme="dark"]{--bg:#1c1636;--text:#fff6d6;--dot:rgba(255,255,255,.07)}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
-body{margin:0;color:var(--ink);background:var(--paper) radial-gradient(circle,rgba(230,57,70,.14) 1.4px,transparent 1.6px) 0 0/14px 14px;font:700 16px/1.45 "Comic Neue","Comic Sans MS",Chalkboard,sans-serif}
-main{max-width:900px;margin:0 auto;padding:18px 14px 50px}
-.title{font:clamp(2.2rem,8vw,4.2rem)/1 Bangers,Impact,sans-serif;letter-spacing:.03em;text-align:center;background:var(--y);color:#1a1420;border:5px solid #1a1420;box-shadow:8px 8px 0 #1a1420;padding:14px 10px;transform:rotate(-1.5deg);margin:10px 4px 6px}
-.tagline{text-align:center;font:1.4rem Bangers,Impact,sans-serif;color:var(--r);margin:16px 0 26px;letter-spacing:.04em}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-.wide{grid-column:1/-1}
-@media (max-width:640px){.grid{grid-template-columns:1fr}}
-.panel{position:relative;border:5px solid #1a1420;background:#fff;box-shadow:7px 7px 0 #1a1420;display:flex;flex-direction:column}
-.panel svg{width:100%;height:auto;display:block}
-.cap{background:var(--cap);color:var(--ink);border-top:4px solid #1a1420;padding:8px 12px;font-size:.95rem}
-.num{position:absolute;top:-14px;left:-10px;z-index:2;font:1.1rem Bangers,Impact,sans-serif;background:var(--r);color:#fff;border:4px solid #1a1420;padding:2px 12px;transform:rotate(-4deg);letter-spacing:.05em}
-.panel:nth-child(even){transform:rotate(.6deg)}.panel:nth-child(odd){transform:rotate(-.5deg)}
-.big{font-family:Bangers,Impact,sans-serif;letter-spacing:.04em}
-footer{text-align:center;margin-top:34px;font-size:.85rem;opacity:.85}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Comic Neue","Comic Sans MS",system-ui,sans-serif;font-size:19px;line-height:1.45;background-image:radial-gradient(var(--dot) 2px,transparent 2.5px);background-size:16px 16px;overflow-x:hidden}
+h1,h2,.bang{font-family:Bangers,Impact,"Arial Black",sans-serif;letter-spacing:.04em;font-weight:400;margin:0}
+main{max-width:980px;margin:0 auto;padding:16px}
+.hero{text-align:center;padding:24px 0 8px}
+h1{font-size:clamp(46px,11vw,110px);line-height:.95;color:var(--y);-webkit-text-stroke:3px var(--ink);paint-order:stroke fill;text-shadow:6px 6px 0 var(--ink);transform:rotate(-2deg);animation:pop 1.2s ease-out both}
+.sub{font-size:1.1em;font-weight:700;margin-top:14px}
+h2{font-size:clamp(28px,6vw,48px);background:var(--r);color:#fff;display:inline-block;padding:2px 16px;border:4px solid var(--ink);box-shadow:5px 5px 0 var(--ink);transform:rotate(-1.5deg);margin:36px 0 14px;-webkit-text-stroke:1px var(--ink);paint-order:stroke fill}
+.panel{position:relative;background:var(--paper);color:var(--ink);border:5px solid var(--ink);box-shadow:9px 9px 0 var(--ink);padding:16px;margin:14px 0;border-radius:6px;background-image:radial-gradient(rgba(0,0,0,.06) 1.5px,transparent 2px);background-size:10px 10px}
+.panel:nth-of-type(odd){transform:rotate(.6deg)}.panel:nth-of-type(even){transform:rotate(-.6deg)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+svg{display:block;width:100%;height:auto;max-width:100%}
+.o{stroke:var(--ink);stroke-width:3;stroke-linejoin:round;stroke-linecap:round}
+.cap{background:var(--y);border:3px solid var(--ink);padding:6px 10px;font-weight:700;display:inline-block;margin:8px 0 0;box-shadow:3px 3px 0 var(--ink)}
+.cap.big{font-size:1.15em}
+.bub{position:relative;background:#fff;color:var(--ink);border:3px solid var(--ink);border-radius:22px;padding:8px 14px;font-weight:700;display:inline-block;margin:6px 0 16px;animation:bob 3s ease-in-out infinite}
+.bub:after{content:"";position:absolute;left:28px;bottom:-16px;border:9px solid transparent;border-top:14px solid var(--ink)}
+.bub:before{content:"";position:absolute;left:31px;bottom:-10px;z-index:1;border:6px solid transparent;border-top:10px solid #fff}
+.bub.r:after{left:auto;right:28px}.bub.r:before{left:auto;right:31px}
+p{margin:.5em 0}
+.rules{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0}
+.rule{background:var(--r);color:#fff;border:3px solid var(--ink);padding:4px 12px;font-family:Bangers,Impact,sans-serif;font-size:24px;letter-spacing:.05em;animation:wob 2.4s ease-in-out infinite;box-shadow:3px 3px 0 var(--ink)}
+.rule:nth-child(2n){animation-delay:-.6s;background:var(--p)}.rule:nth-child(3n){animation-delay:-1.2s;background:#e08a00}
+.step{background:#fff;border:3px solid var(--ink);padding:8px 12px;margin:8px 0;display:flex;gap:12px;align-items:center}
+.step b.n{font-family:Bangers,Impact,sans-serif;font-size:34px;background:var(--b);border:3px solid var(--ink);width:44px;height:44px;flex:none;display:grid;place-items:center;border-radius:50%}
+.bar{height:22px;border:3px solid var(--ink);background:#fff;margin:4px 0 12px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--g);animation:drain 5s ease-in-out infinite alternate}
+.stamp{font-family:Bangers,Impact,sans-serif;font-size:clamp(70px,18vw,150px);color:var(--r);border:8px solid var(--r);display:inline-block;padding:0 24px;transform:rotate(-8deg);animation:thump 2.2s ease-in infinite;line-height:1.1}
+.rev{opacity:0;transform:translateY(40px) scale(.97);transition:.6s cubic-bezier(.2,1.4,.4,1)}.rev.in{opacity:1;transform:none}
+.nojs .rev{opacity:1;transform:none}
+footer{text-align:center;padding:30px 0 50px;font-weight:700}
+.spark{animation:tw 1.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.wand{animation:wave 1.4s ease-in-out infinite;transform-origin:70px 100px}
+.boom{animation:poof 2.5s ease-out infinite;transform-box:fill-box;transform-origin:center}
+.fl{animation:float 4s ease-in-out infinite}
+.shake{animation:shk .35s linear infinite}
+@keyframes pop{0%{transform:scale(.3) rotate(-12deg);opacity:0}70%{transform:scale(1.1) rotate(-2deg)}100%{transform:rotate(-2deg);opacity:1}}
+@keyframes bob{50%{transform:translateY(-6px)}}
+@keyframes wob{50%{transform:rotate(3deg) scale(1.05)}}
+@keyframes tw{0%,100%{transform:scale(.2);opacity:.2}50%{transform:scale(1.2);opacity:1}}
+@keyframes wave{50%{transform:rotate(-28deg)}}
+@keyframes poof{0%{transform:scale(.2);opacity:0}20%{opacity:1}100%{transform:scale(1.6);opacity:0}}
+@keyframes float{50%{transform:translateY(-14px)}}
+@keyframes shk{25%{transform:translate(2px,-2px)}75%{transform:translate(-2px,2px)}}
+@keyframes drain{from{width:100%}to{width:6%}}
+@keyframes thump{0%,60%,100%{transform:rotate(-8deg) scale(1)}70%{transform:rotate(-8deg) scale(1.25)}80%{transform:rotate(-8deg) scale(.95)}}
+@keyframes tilt{0%,100%{transform:rotate(-14deg)}50%{transform:rotate(14deg)}}
+@keyframes gray{0%,45%{filter:none}55%,100%{filter:grayscale(1) contrast(.8)}}
+@keyframes drift{from{transform:translate(0,0);opacity:1}to{transform:translate(60px,-120px);opacity:0}}
+.beam{animation:tilt 4s ease-in-out infinite;transform-origin:150px 60px}
+.stat{animation:gray 5s ease-in-out infinite}
+.drift{animation:drift 3s ease-out infinite}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rev{opacity:1;transform:none}}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<symbol id="wiz" viewBox="0 -20 100 170">
+<path class="o" d="M20 145 L30 78 Q50 68 70 78 L80 145 Z" fill="#8b5cf6"/>
+<path d="M44 100l3 6 6 1-5 4 1 6-5-3-5 3 1-6-5-4 6-1z" fill="#ffd93d"/>
+<circle class="o" cx="50" cy="60" r="17" fill="#ffd0a6"/>
+<path class="o" d="M34 62 Q50 125 66 62 Q50 74 34 62Z" fill="#fff"/>
+<path class="o" d="M26 48 L54 -15 L74 48Z" fill="#6d3fe0"/>
+<ellipse class="o" cx="50" cy="48" rx="32" ry="8" fill="#6d3fe0"/>
+<circle cx="43" cy="56" r="3" fill="#14110f"/><circle cx="57" cy="56" r="3" fill="#14110f"/>
+<path d="M38 50l10 3M62 50l-10 3" stroke="#14110f" stroke-width="3" stroke-linecap="round"/>
+<path d="M54 -15l3 7 7 1-5 5 1 7-6-4-6 4 1-7-5-5 7-1z" fill="#ffd93d"/>
+</symbol>
+<symbol id="elf" viewBox="0 0 100 150">
+<path class="o" d="M26 145 L32 80 Q50 72 68 80 L74 145Z" fill="#3ccf7a"/>
+<path class="o" d="M32 60 L12 46 L33 52Z M68 60 L88 46 L67 52Z" fill="#ffd0a6"/>
+<circle class="o" cx="50" cy="58" r="17" fill="#ffd0a6"/>
+<path class="o" d="M32 52 Q50 20 68 52 Q50 42 32 52Z" fill="#1fa35c"/>
+<circle cx="43" cy="60" r="3" fill="#14110f"/><circle cx="57" cy="60" r="3" fill="#14110f"/>
+<path d="M44 69q6 5 12 0" stroke="#14110f" stroke-width="3" fill="none" stroke-linecap="round"/>
+</symbol>
+<symbol id="suit" viewBox="0 0 100 150">
+<rect class="o" x="30" y="75" width="40" height="70" rx="6" fill="#14110f"/>
+<circle class="o" cx="50" cy="55" r="17" fill="#ffd0a6"/>
+<path d="M33 48 Q50 30 67 48 L67 42 Q50 22 33 42Z" fill="#14110f"/>
+<rect x="36" y="52" width="12" height="9" rx="3" fill="none" stroke="#14110f" stroke-width="3"/><rect x="52" y="52" width="12" height="9" rx="3" fill="none" stroke="#14110f" stroke-width="3"/>
+<path d="M44 70q6 3 12 0" stroke="#14110f" stroke-width="3" fill="none"/>
+<rect x="28" y="73" width="44" height="14" fill="#14110f"/><rect class="o" x="42" y="73" width="16" height="12" rx="3" fill="#ffd0a6"/>
+</symbol>
+</defs>
+</svg>
+
 <main>
-<div class="title">Who the hell invented LARP?</div>
-<div class="tagline">No one does. Still, enjoy the chaos.</div>
+<header class="hero">
+<svg viewBox="0 0 400 230" role="img" aria-label="Wizard casting a spell" style="max-width:420px;margin:0 auto">
+<g class="fl"><use href="#wiz" x="110" y="30" width="150" height="190"/></g>
+<g class="wand"><path class="o" d="M70 100 L150 40" stroke-width="6"/><circle class="o" cx="70" cy="100" r="5" fill="#ffd93d"/></g>
+<path class="spark" d="M60 80l5 12 12 5-12 5-5 12-5-12-12-5 12-5z" fill="#ffd93d" stroke="#14110f" stroke-width="2"/>
+<path class="spark" style="animation-delay:-.4s" d="M30 130l4 9 9 4-9 4-4 9-4-9-9-4 9-4z" fill="#4cc9f0" stroke="#14110f" stroke-width="2"/>
+<path class="spark" style="animation-delay:-.8s" d="M320 80l4 9 9 4-9 4-4 9-4-9-9-4 9-4z" fill="#ff4d5e" stroke="#14110f" stroke-width="2"/>
+</svg>
+<h1>THE ART-LARP PARADOX</h1>
+<p class="sub">Or: how to take something fun, put it in a gallery, and accidentally kill the fucking thing.</p>
+</header>
 
+<h2 class="rev">1. WHAT THE FUCK IS LARP?</h2>
+<section class="panel rev">
 <div class="grid">
-
-<div class="panel wide"><div class="num">1 · THE PARADOX</div>
-<svg viewBox="0 0 800 260" role="img" aria-label="A wizard in a gallery next to a man in a blazer with wine, a sign saying please do not touch">
-<rect width="800" height="260" fill="#cde7ff"/><rect y="200" width="800" height="60" fill="#b9a98a"/>
-<rect x="30" y="40" width="120" height="100" fill="#fff" stroke="#1a1420" stroke-width="5"/><circle cx="90" cy="90" r="26" fill="#e63946"/>
-<rect x="640" y="40" width="130" height="100" fill="#fff" stroke="#1a1420" stroke-width="5"/><path d="M650 130 L700 60 L760 130Z" fill="#3a86ff"/>
-<g stroke="#1a1420" stroke-width="5"><path d="M210 210 L225 120 H285 L300 210Z" fill="#7b2cbf"/><circle cx="255" cy="95" r="26" fill="#ffd9b3"/><path d="M225 80 L255 20 L285 80Z" fill="#7b2cbf"/><path d="M300 140 L340 60" stroke="#8a5a2b"/><circle cx="342" cy="55" r="9" fill="#ffd23f"/></g>
-<g stroke="#1a1420" stroke-width="5"><path d="M520 215 V130 H590 V215Z" fill="#33415c"/><circle cx="555" cy="100" r="26" fill="#ffd9b3"/><path d="M505 140 L470 170" stroke="#33415c"/><path d="M455 160 h30 l-4 25 h-22z" fill="#e63946"/></g>
-<rect x="395" y="150" width="70" height="55" fill="#fff" stroke="#1a1420" stroke-width="5"/><text x="430" y="172" text-anchor="middle" font-size="12" font-family="Comic Neue,sans-serif" font-weight="700">PLEASE DO</text><text x="430" y="190" text-anchor="middle" font-size="12" font-family="Comic Neue,sans-serif" font-weight="700">NOT TOUCH</text>
-<g><ellipse cx="400" cy="55" rx="105" ry="32" fill="#fff" stroke="#1a1420" stroke-width="5"/><path d="M350 78 l-12 32 l38 -22z" fill="#fff" stroke="#1a1420" stroke-width="5"/><path d="M352 80 l-10 22 l28 -16z" fill="#fff"/><text x="400" y="62" text-anchor="middle" font-size="20" font-family="Bangers,Impact" fill="#1a1420">...the vibes die.</text></g>
-<g><ellipse cx="630" cy="190" rx="70" ry="26" fill="#fff" stroke="#1a1420" stroke-width="5"/><text x="630" y="197" text-anchor="middle" font-size="18" font-family="Bangers,Impact" fill="#1a1420">Lovely Merlot.</text></g>
-</svg>
-<div class="cap">Put a LARP in a gallery and it dies. No one wants to be a wizard next to a bloke in a blazer drinking wine. The Art-LARP Paradox: fancy word for “gallery ruined it”.</div></div>
-
-<div class="panel"><div class="num">1.5 · SOURCE?</div>
-<svg viewBox="0 0 400 280" role="img" aria-label="A man in glasses at a podium with a shrugging bubble">
-<rect width="400" height="280" fill="#ffe3e8"/><rect x="30" y="170" width="170" height="110" fill="#8a5a2b" stroke="#1a1420" stroke-width="5"/>
-<g stroke="#1a1420" stroke-width="5"><circle cx="115" cy="100" r="32" fill="#ffd9b3"/><circle cx="103" cy="96" r="10" fill="#fff"/><circle cx="130" cy="96" r="10" fill="#fff"/><path d="M92 150 H138 L145 175 H85Z" fill="#33415c"/></g>
-<text x="115" y="235" text-anchor="middle" font-size="16" font-family="Bangers,Impact" fill="#fff">KNUTEPUNKT 2025</text>
-<ellipse cx="290" cy="70" rx="95" ry="48" fill="#fff" stroke="#1a1420" stroke-width="5"/><path d="M215 95 l-30 25 l45 -8z" fill="#fff" stroke="#1a1420" stroke-width="5"/><text x="290" y="64" text-anchor="middle" font-size="19" font-family="Bangers,Impact">Allegedly named by</text><text x="290" y="88" text-anchor="middle" font-size="22" font-family="Bangers,Impact" fill="#e63946">ALEX BROWN</text>
-<ellipse cx="300" cy="215" rx="85" ry="30" fill="#ffd23f" stroke="#1a1420" stroke-width="5"/><text x="300" y="222" text-anchor="middle" font-size="19" font-family="Bangers,Impact">Trust me, bro. (Check it.)</text>
-</svg>
-<div class="cap">Allegedly named by Alex Brown (2025, Knutepunkt). Source: trust me, bro, but check it.</div></div>
-
-<div class="panel"><div class="num">2 · THE HOBBY</div>
-<svg viewBox="0 0 400 280" role="img" aria-label="Three continents each with a foam swordsman">
-<rect width="400" height="280" fill="#d8f3dc"/><circle cx="350" cy="40" r="26" fill="#ffd23f" stroke="#1a1420" stroke-width="4"/>
-<g stroke="#1a1420" stroke-width="4"><ellipse cx="80" cy="190" rx="65" ry="48" fill="#52b788"/><ellipse cx="200" cy="190" rx="55" ry="48" fill="#3a86ff"/><ellipse cx="320" cy="190" rx="62" ry="48" fill="#ffb703"/></g>
-<g font-family="Bangers,Impact" font-size="15" text-anchor="middle"><text x="80" y="245" >AMERICA</text><text x="200" y="245">EUROPE</text><text x="320" y="245">AUSTRALIA</text></g>
-<g stroke="#1a1420" stroke-width="4"><circle cx="80" cy="150" r="14" fill="#ffd9b3"/><path d="M82 165 L110 110" stroke="#c0c0c0" stroke-width="7"/><circle cx="200" cy="150" r="14" fill="#ffd9b3"/><path d="M202 165 L230 110" stroke="#c0c0c0" stroke-width="7"/><circle cx="320" cy="150" r="14" fill="#ffd9b3"/><path d="M322 165 L350 110" stroke="#c0c0c0" stroke-width="7"/></g>
-<text x="200" y="40" text-anchor="middle" font-size="26" font-family="Bangers,Impact" fill="#e63946">HIT IT WITH A SWORD!</text><text x="200" y="68" text-anchor="middle" font-size="15" font-family="Bangers,Impact">(nobody told anybody)</text>
-</svg>
-<div class="cap">Late 70s and 80s: America, Europe and Australia all went “let’s hit each other with foam swords” without telling each other.</div></div>
-
-<div class="panel"><div class="num">2.5 · 1977</div>
-<svg viewBox="0 0 400 280" role="img" aria-label="Banner reading Dagorhir 1977 with knights">
-<rect width="400" height="280" fill="#fff0c9"/>
-<path d="M60 30 H340 V120 L200 160 L60 120Z" fill="#e63946" stroke="#1a1420" stroke-width="6"/>
-<text x="200" y="85" text-anchor="middle" font-size="44" font-family="Bangers,Impact" fill="#ffd23f" stroke="#1a1420" stroke-width="2">DAGORHIR</text><text x="200" y="125" text-anchor="middle" font-size="28" font-family="Bangers,Impact" fill="#fff">1977</text>
-<g stroke="#1a1420" stroke-width="5"><path d="M90 280 V215 H140 V280Z" fill="#6c757d"/><circle cx="115" cy="195" r="20" fill="#adb5bd"/><path d="M260 280 V215 H310 V280Z" fill="#6c757d"/><circle cx="285" cy="195" r="20" fill="#adb5bd"/><path d="M150 230 L250 200" stroke="#c0c0c0" stroke-width="8"/></g>
-<text x="200" y="262" text-anchor="middle" font-size="18" font-family="Bangers,Impact">THE CLASSIC EARLY ONE</text>
-</svg>
-<div class="cap">Dagorhir (1977) is the classic early one.</div></div>
-
-<div class="panel wide"><div class="num">2.9 · THE NAME</div>
-<svg viewBox="0 0 800 220" role="img" aria-label="Group of nerds scratching heads, thought bubble reading LARP">
-<rect width="800" height="220" fill="#e8dcff"/>
-<g stroke="#1a1420" stroke-width="5"><circle cx="150" cy="130" r="28" fill="#ffd9b3"/><path d="M110 215 L120 160 H180 L190 215Z" fill="#3a86ff"/><circle cx="330" cy="130" r="28" fill="#ffd9b3"/><path d="M290 215 L300 160 H360 L370 215Z" fill="#52b788"/><circle cx="510" cy="130" r="28" fill="#ffd9b3"/><path d="M470 215 L480 160 H540 L550 215Z" fill="#e63946"/></g>
-<text x="150" y="105" text-anchor="middle" font-size="30" font-family="Bangers,Impact">?</text><text x="330" y="105" text-anchor="middle" font-size="30" font-family="Bangers,Impact">??</text><text x="510" y="105" text-anchor="middle" font-size="30" font-family="Bangers,Impact">?!</text>
-<g stroke="#1a1420" stroke-width="5" fill="#fff"><circle cx="640" cy="130" r="8"/><circle cx="660" cy="105" r="12"/><ellipse cx="700" cy="55" rx="85" ry="42"/></g>
-<text x="700" y="45" text-anchor="middle" font-size="16" font-family="Bangers,Impact">circa 1990...</text><text x="700" y="72" text-anchor="middle" font-size="26" font-family="Bangers,Impact" fill="#e63946">“LARP”?</text>
-</svg>
-<div class="cap">“LARP” came into being around 1990, really as a result of the sheer difficulty of coming up with a name for it.</div></div>
-
-<div class="panel wide"><div class="num">3 · THE SLANG</div>
-<svg viewBox="0 0 800 260" role="img" aria-label="Phone with trending tag, finger pointing at a caped person, bubble shouting LARPER">
-<rect width="800" height="260" fill="#ffd6f6"/>
-<rect x="60" y="20" width="150" height="230" rx="22" fill="#1a1420" stroke="#1a1420" stroke-width="5"/><rect x="72" y="42" width="126" height="180" fill="#3a86ff"/>
-<g stroke="#1a1420" stroke-width="4"><circle cx="135" cy="105" r="20" fill="#ffd9b3"/><path d="M110 200 L122 128 H148 L160 200Z" fill="#e63946"/><path d="M118 135 L90 205 L180 205 L152 135" fill="#c77dff" opacity=".85"/></g>
-<text x="135" y="62" text-anchor="middle" font-size="15" font-family="Bangers,Impact" fill="#fff">♪ TRENDING</text><text x="90" y="30" font-size="22" fill="#e63946">♥♥</text><text x="150" y="238" font-size="13" fill="#fff" font-family="Comic Neue,sans-serif">…lol</text>
-<g stroke="#1a1420" stroke-width="5"><path d="M330 150 H430 L450 130 V170 L430 150" fill="#ffd9b3"/><circle cx="300" cy="150" r="30" fill="#ffd9b3"/><path d="M250 255 L262 185 H338 L350 255Z" fill="#33415c"/></g>
-<g><path d="M500 50 L540 20 L560 55 L610 15 L615 65 L690 40 L650 90 L720 110 L650 130 L690 190 L620 160 L600 215 L560 165 L520 200 L520 150 L470 160 L500 120 L450 90 L510 85Z" fill="#ffd23f" stroke="#1a1420" stroke-width="5"/><text x="580" y="125" text-anchor="middle" font-size="34" font-family="Bangers,Impact" fill="#e63946" stroke="#1a1420" stroke-width="1.5">LARPER!</text></g>
-</svg>
-<div class="cap">To be called a LARPer now is to be called a complete and utter bastard and a costume-wearer. No one invented it.</div></div>
-
-<div class="panel wide"><div class="num">3.5 · HOW IT SPREAD</div>
-<svg viewBox="0 0 800 200" role="img" aria-label="Forum icon, arrow, phone icon, arrow, red rash">
-<rect width="800" height="200" fill="#fff"/>
-<g stroke="#1a1420" stroke-width="5"><rect x="40" y="40" width="160" height="110" fill="#adb5bd"/><rect x="55" y="58" width="130" height="14" fill="#fff"/><rect x="55" y="82" width="100" height="14" fill="#fff"/><rect x="55" y="106" width="120" height="14" fill="#fff"/></g>
-<text x="120" y="182" text-anchor="middle" font-size="20" font-family="Bangers,Impact">FORUMS: THE INSULT</text>
-<path d="M230 95 H290 L276 75 M290 95 L276 115" stroke="#1a1420" stroke-width="6" fill="none"/>
-<g stroke="#1a1420" stroke-width="5"><rect x="340" y="25" width="90" height="140" rx="14" fill="#c77dff"/><path d="M370 70 L405 95 L370 120Z" fill="#fff"/></g>
-<text x="385" y="187" text-anchor="middle" font-size="20" font-family="Bangers,Impact">SHORT VIDEO APPS</text>
-<path d="M470 95 H530 L516 75 M530 95 L516 115" stroke="#1a1420" stroke-width="6" fill="none"/>
-<g stroke="#1a1420" stroke-width="4"><circle cx="660" cy="95" r="70" fill="#ffd9b3"/></g>
-<g fill="#e63946" stroke="#1a1420" stroke-width="2"><circle cx="630" cy="70" r="9"/><circle cx="670" cy="60" r="7"/><circle cx="690" cy="100" r="10"/><circle cx="645" cy="115" r="8"/><circle cx="615" cy="100" r="6"/><circle cx="665" cy="130" r="7"/></g>
-<text x="660" y="187" text-anchor="middle" font-size="20" font-family="Bangers,Impact">LIKE A RASH</text>
-</svg>
-<div class="cap">It was the forums that turned it into an insult, and then the short video apps took it up and ran with it like a rash.</div></div>
-
-<div class="panel wide"><div class="num">THE END</div>
-<svg viewBox="0 0 800 260" role="img" aria-label="Trophy with Alex Brown on a podium with confetti">
-<rect width="800" height="260" fill="#ffe29a"/>
-<g stroke="#1a1420" stroke-width="3"><rect x="90" y="30" width="12" height="12" fill="#e63946" transform="rotate(20 96 36)"/><rect x="200" y="60" width="12" height="12" fill="#3a86ff"/><rect x="620" y="35" width="12" height="12" fill="#52b788" transform="rotate(35 626 41)"/><rect x="700" y="90" width="12" height="12" fill="#c77dff"/><rect x="150" y="120" width="12" height="12" fill="#52b788"/><rect x="560" y="120" width="12" height="12" fill="#e63946"/></g>
-<g stroke="#1a1420" stroke-width="5"><rect x="320" y="180" width="160" height="70" fill="#6c757d"/><text x="400" y="225" text-anchor="middle" font-size="26" font-family="Bangers,Impact" fill="#fff" stroke="none">#1</text>
-<path d="M360 60 H440 V110 Q440 145 400 145 Q360 145 360 110Z" fill="#ffd23f"/><rect x="392" y="145" width="16" height="22" fill="#ffd23f"/><rect x="370" y="167" width="60" height="14" fill="#ffd23f"/><path d="M360 75 H335 Q335 115 365 115 M440 75 H465 Q465 115 435 115" fill="none"/></g>
-<ellipse cx="620" cy="170" rx="130" ry="40" fill="#fff" stroke="#1a1420" stroke-width="5"/><text x="620" y="165" text-anchor="middle" font-size="19" font-family="Bangers,Impact">The hobby: naff. The slang: naff.</text><text x="620" y="190" text-anchor="middle" font-size="19" font-family="Bangers,Impact" fill="#e63946">The paradox: Alex Brown, apparently!</text>
-<text x="170" y="170" text-anchor="middle" font-size="36" font-family="Bangers,Impact" stroke="#1a1420" stroke-width="1.5" fill="#fff">WELL DONE ALEX 🏆</text>
-</svg>
-<div class="cap">So who gets the credit? The hobby: naff. The slang: naff. The paradox: Alex Brown, apparently. Well done Alex. 🏆</div></div>
-
+<div>
+<span class="bub">Imagine you’re a wizard.</span>
+<p>Not the Harry Potter kind. The kind with a six-hour costume, a foam sword, and a muddy field.</p>
+<p>LARP = <b>Live Action Role-Playing</b>. People pretend to be other people, fight imaginary battles, and get <i>far</i> too emotionally invested in the death of a fictional king.</p>
+<div class="cap big">You’re not watching the story. You’re making the fucking story happen.</div>
 </div>
-<footer>A fun page, rather shaky sources actually (the Alex Brown bit is unverified). Don’t cite this at a conference.</footer>
+<svg viewBox="0 0 360 230" role="img" aria-label="Wizard arguing with Dave about a dragon">
+<rect class="o" x="3" y="170" width="354" height="55" fill="#7ac36a"/>
+<path d="M20 190q5-8 10 0M300 205q5-8 10 0M200 195q5-8 10 0" stroke="#14110f" stroke-width="3" fill="none"/>
+<use href="#wiz" x="10" y="40" width="110" height="150"/>
+<g class="shake" style="transform-origin:200px 150px"><circle class="o" cx="200" cy="108" r="17" fill="#ffd0a6"/><path class="o" d="M183 105 Q200 80 217 105Z" fill="#aaa"/><rect class="o" x="182" y="125" width="36" height="46" rx="5" fill="#e08a00"/><path class="o" d="M218 135 L255 80" stroke-width="7"/><path class="o" d="M250 88l12-18" stroke="#ff4d5e" stroke-width="8"/></g>
+<text x="190" y="195" font-family="Bangers,Impact,sans-serif" font-size="22" fill="#14110f">DAVE</text>
+<g class="fl"><path class="o" d="M280 100 q20-40 55-10 q-5 20 -25 25 q-15 15 -30-15z" fill="#ff4d5e"/><circle cx="318" cy="92" r="3" fill="#14110f"/><path class="o" d="M300 75l8-14 6 14" fill="#ffd93d"/></g>
+<text x="270" y="140" font-size="13" font-weight="700" fill="#14110f">(it’s a bedsheet)</text>
+<g><rect class="o" x="125" y="25" width="95" height="40" rx="14" fill="#fff"/><text x="132" y="42" font-size="13" font-weight="700" fill="#14110f">My spell kills</text><text x="132" y="58" font-size="13" font-weight="700" fill="#14110f">dragons, Dave!</text></g>
+<g><rect class="o" x="215" y="3" width="90" height="34" rx="14" fill="#fff"/><text x="222" y="25" font-size="14" font-weight="700" fill="#14110f">NO IT DOESN’T</text></g>
+</svg>
+</div>
+<p>It’s collaborative, immersive and gloriously ridiculous. You’re the character, the audience, the performer and part of the world.</p>
+</section>
+
+<h2 class="rev">2. LET’S PUT IT IN A GALLERY!</h2>
+<section class="panel rev">
+<p>Someone looked at LARP and thought: “Hang on. This is art.” Performance, storytelling, costume, emotion… sounds pretty artistic! So, white walls, concrete floors, expensive wine…</p>
+<svg viewBox="0 0 640 270" role="img" aria-label="Gallery with a bucket, a turtleneck man and a lonely wizard">
+<rect class="o" x="3" y="3" width="634" height="200" fill="#f4f4f4"/><rect class="o" x="3" y="200" width="634" height="67" fill="#bdbdbd"/>
+<rect class="o" x="60" y="40" width="130" height="100" fill="#fff"/>
+<g transform="translate(95 55)"><path class="o" d="M0 10h60l-8 55H8z" fill="#9aa5b1"/><ellipse class="o" cx="30" cy="10" rx="30" ry="7" fill="#cfd6dc"/></g>
+<text x="70" y="162" font-size="13" font-weight="700" fill="#14110f">“Capitalism (Bucket)” £40,000</text>
+<use href="#suit" x="230" y="70" width="110" height="150"/>
+<g class="bub-svg"><rect class="o" x="215" y="20" width="195" height="38" rx="14" fill="#fff"/><text x="225" y="44" font-size="13" font-weight="700" fill="#14110f">“The bucket is a metaphor.”</text></g>
+<path class="o" d="M345 150l25-12" /><path class="o" d="M372 130h14l-3 18q-4 4-8 0z" fill="#b3123f"/>
+<g class="shake"><use href="#wiz" x="520" y="90" width="90" height="125"/></g>
+<rect class="o" x="395" y="150" width="75" height="55" fill="#e08a00"/><text x="403" y="184" font-size="13" font-weight="700" fill="#14110f">GIFT SHOP</text>
+<g class="boom"><path class="o" d="M505 215l10-10 10 10-10 10z" fill="#ff4d5e"/></g>
+<ellipse cx="440" cy="238" rx="40" ry="8" fill="none" stroke="#14110f" stroke-width="3" stroke-dasharray="6 5"/>
+<text x="380" y="262" font-size="12" font-weight="700" fill="#b3123f">someone’s been murdered back here</text>
+<path class="spark" d="M490 70l4 9 9 4-9 4-4 9-4-9-9-4 9-4z" fill="#ffd93d" stroke="#14110f" stroke-width="2"/>
+</svg>
+<p>There’s a problem. The gallery has rules:</p>
+<div class="rules"><span class="rule">DON’T TOUCH</span><span class="rule">DON’T RUN</span><span class="rule">DON’T SHOUT</span><span class="rule">DON’T DISTURB</span><span class="rule">RESPECT THE ART</span></div>
+<p>Meanwhile the wizard is overthrowing the kingdom, the elf is negotiating an alliance, and someone’s just been murdered behind the fucking gift shop.</p>
+<div class="cap">Something isn’t working.</div>
+</section>
+
+<h2 class="rev">3. ENTER: THE PARADOX</h2>
+<section class="panel rev">
+<div class="grid">
+<svg viewBox="0 0 300 220" role="img" aria-label="Balance scale: participate versus observe">
+<path class="o" d="M150 60v140M105 205h90" stroke-width="6"/>
+<g class="beam"><path class="o" d="M30 60h240" stroke-width="7"/>
+<path class="o" d="M30 60l-20 60h60z" fill="#3ccf7a"/><text x="14" y="112" font-size="11" font-weight="700" fill="#14110f">PARTICIPATE</text>
+<path class="o" d="M270 60l-30 60h60z" fill="#ff4d5e"/><text x="243" y="112" font-size="11" font-weight="700" fill="#14110f">OBSERVE</text></g>
+<circle class="o" cx="150" cy="60" r="10" fill="#ffd93d"/>
+</svg>
+<div>
+<p>The problem explored by <b>Alex Brown</b> in <i>The Art-Larp Paradox</i> (Knutepunkt 2025):</p>
+<div class="cap big">LARP works because people participate. But the art world often expects people to observe.</div>
+<p>LARP isn’t an object you can put on a pedestal. It’s what happens <i>between</i> people: decisions, relationships, feelings, and a fictional world built together. You can’t exhibit that shit like a painting.</p>
+</div></div>
+</section>
+
+<h2 class="rev">4. HOW TO KILL A LARP WITHOUT TRYING</h2>
+<section class="panel rev">
+<p>The institution wants LARP to be more “accessible.” So…</p>
+<div class="step"><b class="n">1</b><span><b>Make it shorter.</b> People are busy.</span></div>
+<div class="step"><b class="n">2</b><span><b>Make it easier to understand.</b> Nobody wants 47 pages of backstory.</span></div>
+<div class="step"><b class="n">3</b><span><b>Make it visually impressive.</b> We need something for the photographs.</span></div>
+<div class="step"><b class="n">4</b><span><b>Give it a clear beginning and end.</b> Nobody wants a civil war until closing time.</span></div>
+<div class="step"><b class="n">5</b><span><b>Make it suitable for an audience.</b> People need to know where to stand.</span></div>
+<b>LARP-ness meter:</b>
+<div class="bar"><i></i></div>
+<div class="grid">
+<svg viewBox="0 0 220 230" role="img" aria-label="Wizard turned into a museum statue"><g class="stat"><use href="#wiz" x="45" y="10" width="120" height="165"/><rect class="o" x="30" y="175" width="150" height="45" fill="#e6e6e6"/></g>
+<rect class="o" x="50" y="188" width="110" height="22" fill="#fff"/><text x="58" y="204" font-size="12" font-weight="700" fill="#14110f">Wizard (Exhibit)</text></svg>
+<div><p>Result: participants become <b>performers</b>. Visitors become <b>spectators</b>. The fictional world becomes <b>a display</b>.</p>
+<span class="bub">Please step back from the wizard.</span>
+<p>It looks a bit like LARP but doesn’t behave like LARP. Congratulations, you made an immersive experience into something people stand around looking at. <b>Brilliant fucking work.</b></p></div>
+</div>
+</section>
+
+<h2 class="rev">5. BUT ISN’T LARP ALREADY ART?</h2>
+<section class="panel rev" style="text-align:center">
+<div class="stamp">YES.</div>
+<p>Obviously. LARP doesn’t need a gallery’s permission. A painting exists as an object. A sculpture exists as an object. A LARP exists through the interactions between its players.</p>
+<div class="grid" style="text-align:left">
+<svg viewBox="0 0 200 150"><rect class="o" x="30" y="15" width="140" height="95" fill="#fff"/><circle cx="80" cy="60" r="22" fill="#4cc9f0"/><path d="M110 95 l30-50 30 50z" fill="#ffd93d" stroke="#14110f" stroke-width="3"/><text x="40" y="135" font-size="14" font-weight="700" fill="#14110f">Art as object</text></svg>
+<svg viewBox="0 0 200 150"><g class="fl"><use href="#wiz" x="20" y="10" width="70" height="105"/></g><g class="fl" style="animation-delay:-2s"><use href="#elf" x="110" y="15" width="70" height="105"/></g><path class="spark" d="M100 40l5 11 11 5-11 5-5 11-5-11-11-5 11-5z" fill="#ffd93d" stroke="#14110f" stroke-width="2"/><text x="20" y="140" font-size="14" font-weight="700" fill="#14110f">Art as “what just happened”</text></svg>
+</div>
+<p>It might be temporary. It might leave nothing behind but memories. <b>And that’s perfectly fucking fine.</b></p>
+</section>
+
+<h2 class="rev">6. SO, CAN LARP LIVE IN A GALLERY?</h2>
+<section class="panel rev">
+<p>Of course it can! Galleries aren’t evil. They just need to understand what they’re dealing with. You can’t take something whose value comes from participation, agency and immersion, turn everyone into spectators, and assume nothing important has changed.</p>
+<div class="grid">
+<svg viewBox="0 0 220 220" role="img" aria-label="Happy wizard with a lightbulb"><g class="fl"><use href="#wiz" x="50" y="40" width="110" height="170"/></g><circle class="o spark" cx="150" cy="30" r="16" fill="#ffd93d"/><path d="M175 10l12-8M180 30h16M172 50l12 8" stroke="#14110f" stroke-width="3" stroke-linecap="round"/></svg>
+<div><div class="cap big">Don’t turn the wizard into an exhibit. Let people actually be the fucking wizard.</div>
+<p>Bring LARP into the art world without sanding off everything that makes it LARP.</p></div>
+</div>
+</section>
+
+<h2 class="rev">THE END</h2>
+<section class="panel rev">
+<svg viewBox="0 0 640 250" role="img" aria-label="Elves standing silently in a white room, magic drifting away">
+<rect class="o" x="3" y="3" width="634" height="200" fill="#fff"/><rect class="o" x="3" y="200" width="634" height="47" fill="#d0d0d0"/>
+<use href="#elf" x="90" y="60" width="90" height="140"/><use href="#elf" x="250" y="60" width="90" height="140"/><use href="#wiz" x="410" y="45" width="85" height="155"/>
+<rect class="o" x="520" y="120" width="100" height="40" fill="#ff4d5e"/><text x="530" y="146" font-family="Bangers,Impact,sans-serif" font-size="20" fill="#fff">DON’T TOUCH</text>
+<g class="drift"><path d="M300 40l4 9 9 4-9 4-4 9-4-9-9-4 9-4z" fill="#ffd93d" stroke="#14110f" stroke-width="2"/></g>
+<g class="drift" style="animation-delay:-1s"><path d="M200 50l4 9 9 4-9 4-4 9-4-9-9-4 9-4z" fill="#4cc9f0" stroke="#14110f" stroke-width="2"/></g>
+<g class="drift" style="animation-delay:-2s"><path d="M380 55l4 9 9 4-9 4-4 9-4-9-9-4 9-4z" fill="#ff4d5e" stroke="#14110f" stroke-width="2"/></g>
+<rect class="o" x="190" y="8" width="260" height="30" rx="14" fill="#fff"/><text x="205" y="29" font-size="15" font-weight="700" fill="#14110f">…where did the magic go?</text>
+</svg>
+<p>So what’s the Art-LARP Paradox? In trying to make LARP respectable as art, we might accidentally remove the very things that make it interesting as art.</p>
+<div class="cap big">Put a bunch of people pretending to be elves in a white room, tell them not to touch anything, and wonder why the fucking magic disappeared.</div>
+<p><b>And that’s the paradox.</b></p>
+</section>
+<footer class="bang" style="font-size:26px">Based on <i>The Art-Larp Paradox</i> by Alex Brown, Knutepunkt 2025 · Please touch the website.</footer>
 </main>
+<script>
+document.documentElement.classList.add('nojs');
+try{
+var els=document.querySelectorAll('.rev');
+if('IntersectionObserver' in window){
+document.documentElement.classList.remove('nojs');
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.1});
+els.forEach(function(el){io.observe(el)});
+setTimeout(function(){els.forEach(function(el){el.classList.add('in')})},6000);
+}}catch(e){document.documentElement.classList.add('nojs')}
+</script>
 </body>
 </html>
